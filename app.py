@@ -11,7 +11,7 @@ st.markdown(
 )
 
 x, y = sp.symbols('x y')
-fungsi_str = "-0.4*x**2 - 0.2*y**2 + 0.5*x*y + 5"
+fungsi_str = "-0.4*x*2 - 0.2*y*2 + 0.5*x*y + 5"
 
 try:
     f = sp.sympify(fungsi_str)
@@ -44,7 +44,7 @@ try:
     st.markdown("### Proses Evaluasi Fungsi Produktivitas f(x, y):")
     st.latex(r"f(x, y) = -0.4x^2 - 0.2y^2 + 0.5xy + 5")
     st.latex(fr"f({x0:.2f}, {y0:.2f}) = -0.4 \times ({x0:.2f})^2 - 0.2 \times ({y0:.2f})^2 + 0.5 \times {x0:.2f} \times {y0:.2f} + 5")
-    st.latex(fr"= {-0.4 * x0**2:.2f} - {0.2 * y0**2:.2f} + {0.5 * x0 * y0:.2f} + 5")
+    st.latex(fr"= {-0.4 * x0*2:.2f} - {0.2 * y0*2:.2f} + {0.5 * x0 * y0:.2f} + 5")
     st.latex(fr"= {f_val:.2f}")
 
     st.write("Skor produktivitas (f(x, y)):", float(f_val))
@@ -59,7 +59,7 @@ try:
 
     f_np = sp.lambdify((x, y), f, 'numpy')
     Z = f_np(X, Y)
-    Z_tangent = float(f_val) + float(fx_val)*(X - x0) + float(fy_val)*(Y - y0)
+    Z_tangent = float(f_val) + float(fx_val)(X - x0) + float(fy_val)(Y - y0)
 
     fig = plt.figure(figsize=(10, 6))
     ax = fig.add_subplot(111, projection='3d')
@@ -87,5 +87,4 @@ try:
     st.pyplot(fig)
 
 except Exception as e:
-    st.error(f"Terjadi kesalahan saat menjalankan aplikasi: {e}") 
-    
+    st.error(f"Terjadi kesalahan saat menjalankan aplikasi: {e}")
