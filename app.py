@@ -59,7 +59,8 @@ try:
 
     f_np = sp.lambdify((x, y), f, 'numpy')
     Z = f_np(X, Y)
-    Z_tangent = float(f_val) + float(fx_val)(X - x0) + float(fy_val)(Y - y0)
+    Z_tangent = float(f_val) + float(fx_val) * (X - x0) + float(fy_val) * (Y - y0)
+
 
     fig = plt.figure(figsize=(10, 6))
     ax = fig.add_subplot(111, projection='3d')
